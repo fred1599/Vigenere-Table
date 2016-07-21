@@ -6,6 +6,7 @@ using namespace std;
 
 string createLine(char);
 vector<string> createTable(char);
+char get_crypt_key(char, char)
 
 int main(){
 
@@ -39,4 +40,15 @@ vector<string> createTable(char start='A'){
         v.push_back(createLine(start+i));
 
     return v;
+}
+
+char get_crypt_key(char letter_message, char letter_key){
+
+    string column = createLine('A');
+    string line = createLine(letter_key);
+
+    size_t pos = column.find_first_of(letter_message, 0);
+
+    return line.at(pos);
+
 }
